@@ -1,0 +1,8 @@
+.env
+ollama.exe
+ollama_models/
+rag_store.db
+.venv/
+__pycache__/
+*.pyc
+*.log
