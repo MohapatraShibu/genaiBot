@@ -57,15 +57,15 @@ User (Telegram)
 ## Prerequisites
 
 - Python 3.11+
-- A Telegram account (free) — [telegram.org](https://telegram.org)
-- A Telegram bot token (free) — from [@BotFather](https://t.me/BotFather)
+- A Telegram account (free): [telegram.org](https://telegram.org)
+- A Telegram bot token (free): from [@BotFather](https://t.me/BotFather)
 
 ---
 
 ## Setup (One Time Only)
 
 ### 1. Get a Telegram Bot Token
-1. Open Telegram → search **@BotFather** (blue checkmark ✅)
+1. Open Telegram -> search **@BotFather** (blue checkmark ✅)
 2. Send `/newbot`
 3. Choose a display name (e.g. `GenAI Assistant`)
 4. Choose a username ending in `bot` (e.g. `genai_assistant_bot`)
@@ -77,7 +77,7 @@ copy .env.example .env
 ```
 Open `.env` and set your token:
 ```env
-TELEGRAM_TOKEN=123456789:ABCdefGHIjklMNOpqrSTUvwxYZ
+TELEGRAM_TOKEN=123:ABCdef...
 ```
 Everything else in `.env` can stay as-is.
 
@@ -89,16 +89,16 @@ pip install -r requirements.txt
 ### 4. Download Ollama (Portable)
 - Go to [github.com/ollama/ollama/releases/latest](https://github.com/ollama/ollama/releases/latest)
 - Download `ollama-windows-amd64.zip`
-- Extract and copy `ollama.exe` into `c:\Projects\genaiBot\`
+- Extract and copy `ollama.exe` into `\ProjectDirectory\genaiBot\`
 
 ### 5. Create Models Folder
 ```powershell
-mkdir c:\Projects\genaiBot\ollama_models
+mkdir c:\ProjectDirectory\genaiBot\ollama_models
 ```
 
 ### 6. Pull the LLM Model (One Time)
 ```powershell
-$env:OLLAMA_MODELS="c:\Projects\genaiBot\ollama_models"
+$env:OLLAMA_MODELS="c:\ProjectDirectory\genaiBot\ollama_models"
 .\ollama.exe pull llama3.2
 ```
 This downloads ~2GB. Wait for `success`.
@@ -123,12 +123,12 @@ You should see:
 ```
 Waiting for Ollama to be ready...
 Ollama is ready.
-Initializing RAG knowledge base…
-RAG ready. Starting bot…
-Bot polling…
+Initializing RAG knowledge base...
+RAG ready. Starting bot...
+Bot polling...
 ```
 
-Once you see `Bot polling…`, open Telegram and start chatting with your bot!
+Once you see `Bot polling...`, open Telegram and start chatting with your bot!
 
 ---
 
@@ -136,20 +136,20 @@ Once you see `Bot polling…`, open Telegram and start chatting with your bot!
 
 ```
 genaiBot/
-├── ollama.exe              # Portable Ollama binary
+├── ollama.exe              # portable Ollama binary
 ├── ollama_models/          # LLM models stored here
-├── bot.py                  # Telegram handlers
-├── rag.py                  # Chunking, embedding, retrieval, LLM
+├── bot.py                  # telegram handlers
+├── rag.py                  # chunking, embedding, retrieval, LLM
 ├── vision.py               # BLIP image captioning
-├── start.bat               # One-click startup script
-├── docs/                   # Knowledge base documents
+├── docs/                   # knowledge base documents
 │   ├── tech_faq.md
 │   ├── company_policies.md
 │   └── recipes.md
-├── rag_store.db            # Auto-created on first run
+├── rag_store.db            # auto-created on first run
 ├── requirements.txt
-├── .env                    # Your config (not committed)
-└── .env.example            # Config template
+├── .gitignore
+├── .env                    # your config (not committed)
+└── .env.example            # config template
 ```
 
 ---
@@ -193,6 +193,6 @@ Bot:   📝 Summary:
 | Problem | Fix |
 |---|---|
 | `TELEGRAM_TOKEN not set` | Check your `.env` file has the token |
-| Bot not responding | Make sure `start.bat` is running |
+| Bot not responding | Make sure `https://api.telegram.org/...` is running |
 | Slow first `/image` | BLIP downloads ~900MB on first use, wait for it |
 | `ollama.exe` not found | Make sure `ollama.exe` is in `c:\Projects\genaiBot\` |
