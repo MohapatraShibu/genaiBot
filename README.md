@@ -18,29 +18,7 @@ A lightweight Telegram bot supporting **Mini-RAG** (text Q&A from documents) and
 
 ## System Design
 
-```
-User (Telegram)
-      │
-      ▼
-  bot.py  ──── /ask ────►  rag.py
-  (PTB)                      │
-      │              ┌───────┴────────┐
-      │         Embedder         sqlite-vec DB
-      │       (MiniLM-L6)       (rag_store.db)
-      │              │
-      │         Top-K chunks
-      │              │
-      │           LLM call
-      │          (Ollama)
-      │              │
-      │◄─────── Answer + Sources
-      │
-      └── /image ──► vision.py
-                      │
-                  BLIP model
-                      │
-               Caption + Tags
-```
+<img width="268" height="314" alt="Image" src="https://github.com/user-attachments/assets/40a2e9f9-942a-4e91-b383-cff9cb2997d7" />
 
 ---
 
